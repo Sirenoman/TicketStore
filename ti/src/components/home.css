@@ -5,12 +5,37 @@
     font-family: sans-serif;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    text-align: left;
+    font-size: 25px;
+    font-family: 'Segoe UI', sans-serif;
+    line-height: auto;
+    border-style: hidden;
+    outline: none;
+    width: 150px;
+}
+
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 2rem;
+    position: fixed; /* Agregado */
+    top: 0; /* Agregado */
+    left: 0; /* Agregado */
+    right: 0; /* Agregado */
+    background-color: #1c262f; /* Agregado */
 }
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
 .nav-list {
     list-style-type: none;
     display: flex;
@@ -21,37 +46,33 @@
     text-decoration: none;
     color: white;
 }
+
 .abrir-menu {
     display: none;
 }
-@media screen and(max-width: 800px)
-{
-    /* .abrir-menu {
-        display: block;
-        cursor: pointer;
-    }
+
+@media screen and (max-width: 800px) {
     .nav {
-        display: none;
-    } */
-    .nav{
         display: flex;
         flex-direction: column;
-        align-items: end;
+        align-items: flex-end;
+        justify-content: flex-start; /* Añadido */
         position: absolute;
         top: 0;
         right: 0;
         bottom: 0;
-        background-color: #1C262F;
+        background-color: #1c262f;
         padding: 2rem;
-        box-shadow: 0 0 0 100vmax rgba(0,0, 0,0.5);
+        box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
     }
-    .nav-list{
+
+    .nav-list {
         flex-direction: column;
-        align-items: end;
+        gap: 0.5rem; /* Ajustado */
     }
-    .nav-list li a{
+
+    .nav-list li a {
         color: white;
-
     }
-
 }
+
