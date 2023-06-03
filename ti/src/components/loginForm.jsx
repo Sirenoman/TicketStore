@@ -27,7 +27,8 @@ const LoginForm = ({ setUser }) => {
         if (userEmail === "abc123" || password === "123abc") {
             notifyGood()
             setError(false);
-            setUser([userEmail]);  
+            setUser([userEmail]);
+            
         } else {
             // Como se encuentran los parámetros vacíos, no permite el ingreso
             setError(true)

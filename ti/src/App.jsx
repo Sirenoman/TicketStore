@@ -13,12 +13,11 @@ function App() {
       <div>
         {
           !user.length > 0 ? (
-          <LoginForm setUser={setUser} />
-          ):(
-          <Home user={user} setUser={setUser}/>
-        )}
+            <LoginForm setUser={setUser} />
+          ) : (
+            <Home user={user} setUser={setUser} />
+          )}
       </div>
-
     </div>
   );
 }

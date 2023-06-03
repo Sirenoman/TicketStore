@@ -1,13 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
 
-.logo
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+}
+.nav-list {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: white;
+}
+.abrir-menu {
+    display: none;
+}
+@media screen and(max-width: 800px)
 {
-color:#ffffff;
-text-align:left;
-vertical-align:text-top;
-font-size:55px;
-font-family:Segoe UI;
-line-height:auto;
-border-style:hidden;
-outline:none;
-width:150.00001525878906px;
+    /* .abrir-menu {
+        display: block;
+        cursor: pointer;
+    }
+    .nav {
+        display: none;
+    } */
+    .nav{
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #1C262F;
+        padding: 2rem;
+        box-shadow: 0 0 0 100vmax rgba(0,0, 0,0.5);
+    }
+    .nav-list{
+        flex-direction: column;
+        align-items: end;
+    }
+    .nav-list li a{
+        color: white;
+
+    }
+
 }
