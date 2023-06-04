@@ -1,3 +1,4 @@
+import { BrowserRouter as Router } from 'react-router-dom';
 import LoginForm from './components/loginForm';
 import Home from './components/home';
 import { useState } from 'react';
@@ -15,7 +16,9 @@ function App() {
           !user.length > 0 ? (
             <LoginForm setUser={setUser} />
           ) : (
-            <Home user={user} setUser={setUser} />
+            <Router>
+              <Home user={user} setUser={setUser} />
+            </Router>
           )}
       </div>
     </div>
