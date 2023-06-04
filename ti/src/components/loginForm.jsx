@@ -6,7 +6,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 const notifyBad = () => {
     toast.error('Todos los campos debera ser llenados', {
-        position: toast.POSITION.TOP_RIGHT
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 50
     });
 };
 const notifyGood = () => { 
@@ -24,7 +25,7 @@ const LoginForm = ({ setUser }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (userEmail === "abc123" || password === "123abc") {
+        if (userEmail === "abc123" && password === "123abc") {
             notifyGood()
             setError(false);
             setUser([userEmail]);
