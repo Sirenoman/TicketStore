@@ -116,14 +116,14 @@ function TicketEvent() {
     )}
       <main>
       <div className="box-save">
-          <h1>Basic Details</h1>
-          <p>This section contains the basic details of the event</p>
+          <h1>Tickets Details</h1>
+          <p>This section contains the tickets details for you event</p>
 
           <hr />
 
           <form onSubmit={handleSubmit}>
           <div className="form-save">
-              
+            
           </div>
           </form>
       </div>
