@@ -4,6 +4,7 @@ import Login from './components/login';
 import Home from './components/home';
 import SaveEvent from './components/saveEvent';
 import TicketEvent from './components/ticketEvent';
+import Search from './components/search';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/home" element={<Home user={user} setUser={setUser} />} />
         <Route path="/event" element={ < SaveEvent />} />
         <Route path="/event-tickets" element={ < TicketEvent />} />
+        <Route path="/search" element={ < Search />} />
       </Routes>
     </div>
   );

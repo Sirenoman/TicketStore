@@ -1,15 +1,16 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import './event.css';
+import './event.css'
+import { Link, useNavigate } from 'react-router-dom'
 
-function TicketEvent() {
+function Search() {
     // funciones para header y menulateral
     const [menuOpen, setMenuOpen] = useState(false);
-    const [activeOption, setActiveOption] = useState('new');
+    const [activeOption, setActiveOption] = useState('searchI');
+    // Funcion para navegacion
 
     const handleOptionHover = (option) => {
         setActiveOption(option);
@@ -18,49 +19,13 @@ function TicketEvent() {
     const toggleMenu = () => {
         setMenuOpen(prevMenuOpen => !prevMenuOpen);
     }
-    
-  const [formData, setFormData] = useState({
-    title: '',
-    date_hour: '',
-    duration: '',
-    sponsor: '',
-    category: '',
-    location: '',
-    image: null,
-    description: ''
-  });
-  const [view, setView] = useState('');
 
-  const handleInputChange = (e) => {
-    const { name, value, type, files } = e.target;
-    if (type === 'file') {
-      setFormData((prevData) => ({
-        ...formData,
-        [name]: files[0]
-      }));
-
-      const urlObjet = URL.createObjectURL(files[0]);
-      setView(urlObjet);
-    } else {
-      setFormData((prevData) => ({
-        ...formData,
-        [name]: value
-      }));
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const jsonData = JSON.stringify(formData, null, 2);
-    // Aquí realizar la lógica para enviar el archivo JSON por API o almacenándolo localmente.
-    console.log(jsonData);
-  };
 
   return (
-    <> 
+    <>
     <header className='header'>
     <div className='logo'><a href="#">LOGO</a></div>
-        <nav className='nav' >
+      <nav className='nav' >
           <ul className='nav-list'>
               <li
                 className={`all ${activeOption === 'all' ? 'active' : ''}`}
@@ -114,22 +79,8 @@ function TicketEvent() {
             <li>Enlace 3</li>
         </ul>
     )}
-      <main>
-      <div className="box-save">
-          <h1>Tickets Details</h1>
-          <p>This section contains the tickets details for you event</p>
-
-          <hr />
-
-          <form onSubmit={handleSubmit}>
-          <div className="form-save">
-            
-          </div>
-          </form>
-      </div>
-      </main>
     </>
   )
 }
 
-export default TicketEvent
+export default Search
