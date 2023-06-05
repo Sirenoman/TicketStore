@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import dataCard from './data';
 import React, { useState } from 'react';
@@ -19,8 +20,11 @@ const Home = () => {
     const toggleMenu = () => {
         setMenuOpen(prevMenuOpen => !prevMenuOpen);
     }
+    const toggleMenuClose = () => {
+        setMenuOpen(false);
+    }
     //Informacion de las cartas
-    
+
 
     return (
         <div className='main-container'>
@@ -75,11 +79,18 @@ const Home = () => {
                 </nav>
             </header>
             {menuOpen && (
-                <ul className="menu-list">
-                    <li>Enlace 1</li>
-                    <li>Enlace 2</li>
-                    <li>Enlace 3</li>
-                </ul>
+                <div className="menu-container">
+                    <ul className="menu-list">
+                        <li><FontAwesomeIcon icon={faXmark} onClick={toggleMenuClose}  /></li>
+                        <li>Dashboard</li>
+                        <li>Resume</li>
+                        <li>Transfer</li>
+                        <li>Statistic</li>
+                        <li>Validate</li>
+                        <li>Settings</li>
+                        <button><Link to="/">LogOut</Link></button>
+                    </ul>
+                </div>
             )}
 
             {/* Aqui irian las cartas de los tickets */}
@@ -93,6 +104,7 @@ const Home = () => {
                             <div className='text'>{card.text}</div>
                             <div className='price'>{card.precio}</div>
                             <button className='buy-btn'>Buy</button>
+
                         </div>
                     ))}
                 </div>
