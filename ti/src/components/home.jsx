@@ -1,4 +1,4 @@
-import { BrowserRouter as Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
@@ -78,13 +78,13 @@ const Home = () => {
                             className={`all ${activeOption === 'all' ? 'active' : ''}`}
                             onMouseEnter={() => handleOptionHover('all')}
                         >
-                            <a href="#">All</a>
+                            <Link to="/home">All</Link>
                         </li>
                         <li
                             className={`new ${activeOption === 'new' ? 'active' : ''}`}
                             onMouseEnter={() => handleOptionHover('new')}
                         >
-                            <a href="#">New</a>
+                            <Link to="/event">New</Link>
                         </li>
                         <li
                             className={`cultural ${activeOption === 'cultural' ? 'active' : ''}`}

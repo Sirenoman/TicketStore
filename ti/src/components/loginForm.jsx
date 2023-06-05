@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 const notifyBad = () => {
     toast.error('Todos los campos debera ser llenados', {
         position: toast.POSITION.TOP_RIGHT,
-        autoClose: 50
+        autoClose: 5000
     });
 };
 const notifyGood = () => { 

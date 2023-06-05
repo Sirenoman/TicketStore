@@ -1,8 +1,9 @@
-import { BrowserRouter as Router } from 'react-router-dom';
-import LoginForm from './components/loginForm';
-import Home from './components/home';
+import { Routes, Route } from 'react-router-dom'; 
 import { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import Login from './components/login';
+import Home from './components/home';
+import SaveEvent from './components/saveEvent';
+import TicketEvent from './components/ticketEvent';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
@@ -10,17 +11,12 @@ function App() {
   const [user, setUser] = useState([]);
   return (
     <div className="App">
-      <ToastContainer />
-      <div>
-        {
-          !user.length > 0 ? (
-            <LoginForm setUser={setUser} />
-          ) : (
-            <Router>
-              <Home user={user} setUser={setUser} />
-            </Router>
-          )}
-      </div>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/home" element={<Home user={user} setUser={setUser} />} />
+        <Route path="/event" element={ < SaveEvent />} />
+        <Route path="/event-tickets" element={ < TicketEvent />} />
+      </Routes>
     </div>
   );
 }
