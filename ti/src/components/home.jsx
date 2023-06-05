@@ -2,13 +2,16 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import "./home.css"
+import dataCard from './dataAll';
 import React, { useState } from 'react';
+import "./home.css"
 
 const Home = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [activeOption, setActiveOption] = useState('all');
+    const [cards, setCards] = useState(dataCard);
 
     const handleOptionHover = (option) => {
         setActiveOption(option);
@@ -17,64 +20,11 @@ const Home = () => {
     const toggleMenu = () => {
         setMenuOpen(prevMenuOpen => !prevMenuOpen);
     }
+    const toggleMenuClose = () => {
+        setMenuOpen(false);
+    }
     //Informacion de las cartas
-    const [cards] = useState([
-        {
-            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1i_g-FR9mMMhAwkeuozHGO2CkWxFXwSPIFw&usqp=CAU',
-            title: 'Card 1',
-            text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.`,
-            precio: '$15.00'
-        },
-        {
-            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1i_g-FR9mMMhAwkeuozHGO2CkWxFXwSPIFw&usqp=CAU',
-            title: 'Card 2',
-            text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.`,
-            precio: '$25.00'
-        },
-        {
-            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1i_g-FR9mMMhAwkeuozHGO2CkWxFXwSPIFw&usqp=CAU',
-            title: 'Card 3',
-            text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.`,
-            precio: '$35.00'
-        },
-        {
-            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1i_g-FR9mMMhAwkeuozHGO2CkWxFXwSPIFw&usqp=CAU',
-            title: 'Card 4',
-            text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.`,
-            precio: '$45.00'
-        },
-        {
-            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1i_g-FR9mMMhAwkeuozHGO2CkWxFXwSPIFw&usqp=CAU',
-            title: 'Card 5',
-            text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.`,
-            precio: '$55.00'
-        },
-        {
-            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1i_g-FR9mMMhAwkeuozHGO2CkWxFXwSPIFw&usqp=CAU',
-            title: 'Card 6',
-            text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.`,
-            precio: '$65.00'
-        },
-        {
-            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1i_g-FR9mMMhAwkeuozHGO2CkWxFXwSPIFw&usqp=CAU',
-            title: 'Card 7',
-            text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.`,
-            precio: '$75.00'
-        },
-        {
-            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1i_g-FR9mMMhAwkeuozHGO2CkWxFXwSPIFw&usqp=CAU',
-            title: 'Card 8',
-            text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.`,
-            precio: '$85.00'
-        },
-        {
-            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1i_g-FR9mMMhAwkeuozHGO2CkWxFXwSPIFw&usqp=CAU',
-            title: 'Card 9',
-            text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.`,
-            precio: '$95.00'
-        }
 
-    ])
 
     return (
         <div className='main-container'>
@@ -129,11 +79,18 @@ const Home = () => {
                 </nav>
             </header>
             {menuOpen && (
-                <ul className="menu-list">
-                    <li>Enlace 1</li>
-                    <li>Enlace 2</li>
-                    <li>Enlace 3</li>
-                </ul>
+                <div className="menu-container">
+                    <ul className="menu-list">
+                        <li><FontAwesomeIcon icon={faXmark} onClick={toggleMenuClose}  /></li>
+                        <li>Dashboard</li>
+                        <li>Resume</li>
+                        <li>Transfer</li>
+                        <li>Statistic</li>
+                        <li>Validate</li>
+                        <li>Settings</li>
+                        <button><Link to="/">LogOut</Link></button>
+                    </ul>
+                </div>
             )}
 
             {/* Aqui irian las cartas de los tickets */}
@@ -147,6 +104,7 @@ const Home = () => {
                             <div className='text'>{card.text}</div>
                             <div className='price'>{card.precio}</div>
                             <button className='buy-btn'>Buy</button>
+
                         </div>
                     ))}
                 </div>

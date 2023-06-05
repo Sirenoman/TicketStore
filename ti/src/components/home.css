@@ -8,7 +8,9 @@
 body {
     height: 180%;
     background-color: #1c262f;
+
 }
+
 .header {
     display: flex;
     align-items: center;
@@ -159,7 +161,26 @@ body {
     }
 }
 
-/*CSS de prueba*/
+.menu-container {
+    width: 250px;
+    /* Ancho del menú lateral */
+    background-color:#1c262f;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+ul li{
+    list-style: none;
+}
+
+.content-container {
+    flex-grow: 1;
+    padding: 20px;
+    /* Espacio adicional para evitar que el contenido se superponga con el menú */
+}
+
+/*CSS de cartas*/
 .sectionCards {
     margin-top: 75px;
     color: #000000;
@@ -222,6 +243,7 @@ body {
     margin-top: 10px;
     cursor: pointer;
 }
-.card .buy-btn:hover{
+
+.card .buy-btn:hover {
     transform: scale(1.10);
 }
