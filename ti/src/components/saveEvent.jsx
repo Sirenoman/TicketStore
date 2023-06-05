@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import './event.css'
 import { Link, useNavigate } from 'react-router-dom'
@@ -39,6 +40,7 @@ function SaveEvent() {
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
+  // funciones para el header y menulateral
   const handleOptionHover = (option) => {
     setActiveOption(option);
   };
@@ -46,7 +48,10 @@ function SaveEvent() {
   const toggleMenu = () => {
     setMenuOpen(prevMenuOpen => !prevMenuOpen);
   }
-
+  const toggleMenuClose = () => {
+    setMenuOpen(false);
+  }
+  // Funciones del formulario
   const handleInputChange = (e) => {
     const { name, value, type, files } = e.target;
     if (type === 'file') {
@@ -125,11 +130,18 @@ function SaveEvent() {
       </nav>
     </header>
     {menuOpen && (
-        <ul className="menu-list">
-            <li>Enlace 1</li>
-            <li>Enlace 2</li>
-            <li>Enlace 3</li>
-        </ul>
+      <div className="menu-container">
+          <ul className="menu-list">
+              <li><FontAwesomeIcon icon={faXmark} onClick={toggleMenuClose}  /></li>
+              <li>Dashboard</li>
+              <li>Resume</li>
+              <li>Transfer</li>
+              <li>Statistic</li>
+              <li>Validate</li>
+              <li>Settings</li>
+              <button><Link to="/">LogOut</Link></button>
+          </ul>
+      </div>
     )}
     <div className="box-save">
       <h1>Basic Details</h1>

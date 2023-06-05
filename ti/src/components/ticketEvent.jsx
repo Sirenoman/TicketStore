@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import './event.css';
 
@@ -43,10 +44,12 @@ function TicketEvent() {
   const toggleMenu = () => {
     setMenuOpen(prevMenuOpen => !prevMenuOpen);
   }
-
+  const toggleMenuClose = () => {
+    setMenuOpen(false);
+  }
   // funciones del formulario
-  const handleCheckboxChange = (event) => {
-    const { name, checked } = event.target;
+  const handleCheckboxChange = (e) => {
+    const { name, checked } = e.target;
 
     setFormValues((prevValues) => ({
       ...prevValues,
@@ -54,8 +57,8 @@ function TicketEvent() {
     }));
   };
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
 
     setInputValues((prevValues) => ({
       ...prevValues,
@@ -63,8 +66,8 @@ function TicketEvent() {
     }));
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
     const data = [];
 
@@ -138,11 +141,18 @@ function TicketEvent() {
       </nav>
     </header>
     {menuOpen && (
-        <ul className="menu-list">
-            <li>Enlace 1</li>
-            <li>Enlace 2</li>
-            <li>Enlace 3</li>
-        </ul>
+      <div className="menu-container">
+          <ul className="menu-list">
+              <li><FontAwesomeIcon icon={faXmark} onClick={toggleMenuClose}  /></li>
+              <li>Dashboard</li>
+              <li>Resume</li>
+              <li>Transfer</li>
+              <li>Statistic</li>
+              <li>Validate</li>
+              <li>Settings</li>
+              <button><Link to="/">LogOut</Link></button>
+          </ul>
+      </div>
     )}
     <main>
     <div className="box-save">
