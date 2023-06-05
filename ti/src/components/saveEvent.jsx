@@ -5,22 +5,17 @@ import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import './event.css'
 import { Link, useNavigate } from 'react-router-dom'
+import { useDropzone } from 'react-dropzone';
 
 function SaveEvent() {
-    // funciones para header y menulateral
-    const [menuOpen, setMenuOpen] = useState(false);
-    const [activeOption, setActiveOption] = useState('all');
-    // Funcion para navegacion
-    const navigate = useNavigate();
-
-    const handleOptionHover = (option) => {
-        setActiveOption(option);
-    };
-
-    const toggleMenu = () => {
-        setMenuOpen(prevMenuOpen => !prevMenuOpen);
-    }
-
+  // funciones para header y menulateral
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeOption, setActiveOption] = useState('new');
+  // Funcion para navegacion
+  const navigate = useNavigate();
+  // Funcion para la seleccion de imagen
+  const [selectedFiles, setSelectedFiles] = useState([]);
+  // Guardado de datos del formulario
   const [formData, setFormData] = useState({
     title: '',
     date_hour: '',
@@ -31,18 +26,36 @@ function SaveEvent() {
     image: null,
     description: ''
   });
-  const [view, setView] = useState('');
+
+  // funciones para el dropzone
+  const onDrop = (acceptedFiles) => {
+    setSelectedFiles(acceptedFiles);
+    const fileArray = Array.from(acceptedFiles)
+    setFormData((prevData) => ({
+      ...formData,
+      image: fileArray
+    }));
+  }
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+
+  const handleOptionHover = (option) => {
+    setActiveOption(option);
+  };
+
+  const toggleMenu = () => {
+    setMenuOpen(prevMenuOpen => !prevMenuOpen);
+  }
 
   const handleInputChange = (e) => {
     const { name, value, type, files } = e.target;
     if (type === 'file') {
+      const fileArray = Array.from(files);
       setFormData((prevData) => ({
         ...formData,
-        [name]: files[0]
+        image: fileArray // Aquí se guardan los archivos seleccionados en el input file.
       }));
-
-      const urlObjet = URL.createObjectURL(files[0]);
-      setView(urlObjet);
+      setSelectedFiles(fileArray);
     } else {
       setFormData((prevData) => ({
         ...formData,
@@ -134,7 +147,7 @@ function SaveEvent() {
           </div>
           <div className='date'>
             <label htmlFor="date_hour"><h2>date and hour</h2></label>
-            <p>You must choise the date and hour of your event</p>
+            <p>Choise the date and hour of your event</p>
             <input type="datetime-local" name="date_hour" id="date_hour" 
               value={formData.date_hour} onChange={handleInputChange} min="2023-01-01T00:00" />
           </div>
@@ -166,11 +179,29 @@ function SaveEvent() {
             <input type="text" name="location" id="location" placeholder='PLACE' 
               value={formData.location} onChange={handleInputChange} />
           </div>
-          <div className='image'>
-            <label htmlFor="image"><h2>image</h2></label>
-            <input type="file" name="image" id="image" accept="image/*" onChange={handleInputChange} />
-            <img src={view} id='imagePhoto' alt="Vista previa de la imagen seleccionada" disabled />
+
+          <div {...getRootProps()} className={`dropzone ${isDragActive ? 'active' : ''}`} >
+            <label htmlFor="image"></label>
+            <input type='file' {...getInputProps()} name="image" id="image"  accept="image/*" onChange={handleInputChange} />
+            {selectedFiles.length > 0 ? (
+              <div>
+                <p>Imágenes seleccionadas:</p>
+                <ul id='files'>
+                  {selectedFiles.map((file, index) => (
+                    <div key={index}>
+                      <img src={URL.createObjectURL(file)} alt="Imagen" width={200} />
+                    </div>
+                  ))}     
+                </ul>
+              </div>
+            ) : (
+              <div>
+                <img src="./external/IconDownloadImagen.png" alt="Imagen" width={200} />
+                <p>Arrastra y suelta la imágene aquí o haz clic para seleccionarla.</p>
+              </div>
+            )}
           </div>
+          
           <div className='description'>
             <label htmlFor="description"><h2>description</h2></label>
             <p>Write a description of your event</p>
@@ -185,7 +216,7 @@ function SaveEvent() {
     </div>
     
     </>
-  )
+  );
 }
 
 export default SaveEvent
