@@ -4,7 +4,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faCartArrowDown } from '@fortawesome/free-solid-svg-icons';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import dataCard from './data';
+import dataCard from './dataAll';
 import React, { useState } from 'react';
 import "./home.css"
 

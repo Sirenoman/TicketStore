@@ -1,7 +1,7 @@
 const dataCard = [
     {
         picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1i_g-FR9mMMhAwkeuozHGO2CkWxFXwSPIFw&usqp=CAU',
-        title: 'Card 1',
+        title: 'Sirenoman',
         text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.`,
         precio: '$15.00'
     },
