@@ -19,47 +19,56 @@ const Home = () => {
     }
     //Informacion de las cartas
     const [cards] = useState([
-        {   
+        {
+            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1i_g-FR9mMMhAwkeuozHGO2CkWxFXwSPIFw&usqp=CAU',
             title: 'Card 1',
             text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.`,
             precio: '$15.00'
         },
         {
+            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1i_g-FR9mMMhAwkeuozHGO2CkWxFXwSPIFw&usqp=CAU',
             title: 'Card 2',
             text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.`,
             precio: '$25.00'
         },
         {
+            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1i_g-FR9mMMhAwkeuozHGO2CkWxFXwSPIFw&usqp=CAU',
             title: 'Card 3',
             text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.`,
             precio: '$35.00'
         },
         {
+            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1i_g-FR9mMMhAwkeuozHGO2CkWxFXwSPIFw&usqp=CAU',
             title: 'Card 4',
             text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.`,
             precio: '$45.00'
         },
-        {   
+        {
+            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1i_g-FR9mMMhAwkeuozHGO2CkWxFXwSPIFw&usqp=CAU',
             title: 'Card 5',
             text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.`,
             precio: '$55.00'
         },
         {
+            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1i_g-FR9mMMhAwkeuozHGO2CkWxFXwSPIFw&usqp=CAU',
             title: 'Card 6',
             text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.`,
             precio: '$65.00'
         },
         {
+            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1i_g-FR9mMMhAwkeuozHGO2CkWxFXwSPIFw&usqp=CAU',
             title: 'Card 7',
             text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.`,
             precio: '$75.00'
         },
         {
+            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1i_g-FR9mMMhAwkeuozHGO2CkWxFXwSPIFw&usqp=CAU',
             title: 'Card 8',
             text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.`,
             precio: '$85.00'
         },
         {
+            picture: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1i_g-FR9mMMhAwkeuozHGO2CkWxFXwSPIFw&usqp=CAU',
             title: 'Card 9',
             text: `Lorem ipsum dolor sit amet, consectetur adipisicing elit.`,
             precio: '$95.00'
@@ -103,7 +112,7 @@ const Home = () => {
                             onMouseEnter={() => handleOptionHover('searchI')}
                         >
                             <a href="#">
-                                <FontAwesomeIcon icon={faSearch} />
+                                <Link to="/search"> <FontAwesomeIcon icon={faSearch} /></Link>
                             </a>
                         </li>
                         <li className='cartI'>
@@ -133,7 +142,7 @@ const Home = () => {
                     {cards.map((card, i) => (
                         <div key={i} className='card'>
                             <div className='baseRectangle'></div>
-                            <img className='card-image' src='https://www.xtrafondos.com/descargar.php?id=5283&vertical=1' alt="imagenAlternativa"/>
+                            <img className='card-image' src={card.picture} alt="imagenAlternativa" />
                             <div className='title'>{card.title}</div>
                             <div className='text'>{card.text}</div>
                             <div className='price'>{card.precio}</div>

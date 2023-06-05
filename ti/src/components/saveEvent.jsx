@@ -94,7 +94,8 @@ function SaveEvent() {
                 onMouseEnter={() => handleOptionHover('searchI')}
               >
                 <a href="#">
-                    <FontAwesomeIcon icon={faSearch} />
+                    <Link to="/search"><FontAwesomeIcon icon={faSearch} /></Link>
+                    
                 </a>
               </li>
               <li className='cartI'>
