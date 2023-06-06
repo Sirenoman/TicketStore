@@ -5,7 +5,7 @@
     flex-grow: 1;
     justify-content: center;
 }
-
+/*Se usa para limitar los contenedores*/
 .container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
