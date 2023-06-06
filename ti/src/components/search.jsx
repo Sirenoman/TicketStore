@@ -94,8 +94,8 @@ function Search() {
             <li><FontAwesomeIcon icon={faXmark} onClick={toggleMenuClose} /></li>
             <li>Dashboard</li>
             <li>Resume</li>
-            <li>Transfer</li>
-            <li>Statistic</li>
+            <Link to="/transfer"><li>Transfer</li></Link>
+            <Link to="/statistics"><li>Statistic</li></Link>
             <li>Validate</li>
             <li>Settings</li>
             <button><Link to="/">LogOut</Link></button>

@@ -5,6 +5,8 @@ import Home from './components/home';
 import SaveEvent from './components/saveEvent';
 import TicketEvent from './components/ticketEvent';
 import Search from './components/search';
+import Statistics from './components/statistics';
+import Transfer from './components/transfer';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
@@ -18,6 +20,8 @@ function App() {
         <Route path="/event" element={ < SaveEvent />} />
         <Route path="/event-tickets" element={ < TicketEvent />} />
         <Route path="/search" element={ < Search />} />
+        <Route path="/statistics" element={ <Statistics /> } />
+        <Route path="/transfer" element={ <Transfer /> } />
       </Routes>
     </div>
   );

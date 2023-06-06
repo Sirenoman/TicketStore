@@ -135,8 +135,8 @@ function SaveEvent() {
               <li><FontAwesomeIcon icon={faXmark} onClick={toggleMenuClose}  /></li>
               <li>Dashboard</li>
               <li>Resume</li>
-              <li>Transfer</li>
-              <li>Statistic</li>
+              <Link to="/transfer"><li>Transfer</li></Link>
+              <Link to="/statistics"><li>Statistic</li></Link>
               <li>Validate</li>
               <li>Settings</li>
               <button><Link to="/">LogOut</Link></button>
@@ -197,11 +197,11 @@ function SaveEvent() {
             <input type='file' {...getInputProps()} name="image" id="image"  accept="image/*" onChange={handleInputChange} />
             {selectedFiles.length > 0 ? (
               <div>
-                <p>Imágenes seleccionadas:</p>
+                <p>Selected Images:</p>
                 <ul id='files'>
                   {selectedFiles.map((file, index) => (
                     <div key={index}>
-                      <img src={URL.createObjectURL(file)} alt="Imagen" width={200} />
+                      <img src={URL.createObjectURL(file)} alt="Imagen" width={300} />
                     </div>
                   ))}     
                 </ul>
@@ -209,7 +209,7 @@ function SaveEvent() {
             ) : (
               <div>
                 <img src="./external/IconDownloadImagen.png" alt="Imagen" width={200} />
-                <p>Arrastra y suelta la imágene aquí o haz clic para seleccionarla.</p>
+                <p>Drag and drop image here or click to add image.</p>
               </div>
             )}
           </div>

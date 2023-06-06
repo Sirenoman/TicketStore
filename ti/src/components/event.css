@@ -74,7 +74,7 @@
 }
 
 .form-save input{
-  width: 80%;
+  width: 85%;
   right: 35px;
   height: 30px;
   border: none;
@@ -83,7 +83,7 @@
   outline: none;
 }
 .form-save select{
-  width: 80%;
+  width: 85%;
   right: 35px;
   height: 30px;
 }

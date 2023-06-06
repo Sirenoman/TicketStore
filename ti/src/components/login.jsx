@@ -11,7 +11,7 @@ function Login() {
 
   const handleLogin = (userEmail) =>{
     setUser(userEmail);
-    navigate('/home');
+    //navigate('/home');
   }
   
   return (
@@ -22,7 +22,7 @@ function Login() {
           !user.length > 0 ? (
             <LoginForm setUser={handleLogin} />
           ) : (
-            <Home user={user} setUser={setUser} />
+              <Home user={user} setUser={setUser} />
           )}
       </div>
     </div>
