@@ -1,0 +1,20 @@
+.scantodiscover {
+    color: #ffffff;
+    text-align: center;
+    font-size: 55px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-style: hidden;
+    outline: none;
+    width: 635px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.scantodiscover hr {
+    width: 100%;
+    margin-top: 10px;
+    border: none;
+    border-top: 2px solid #ffffff;
+}

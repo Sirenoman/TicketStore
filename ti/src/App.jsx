@@ -7,6 +7,7 @@ import TicketEvent from './components/ticketEvent';
 import Search from './components/search';
 import Statistics from './components/statistics';
 import Transfer from './components/transfer';
+import Validate from './components/validate';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/search" element={ < Search />} />
         <Route path="/statistics" element={ <Statistics /> } />
         <Route path="/transfer" element={ <Transfer /> } />
+        <Route path="/validate" element={ <Validate/> } />
       </Routes>
     </div>
   );
