@@ -137,7 +137,7 @@ function SaveEvent() {
               <li>Resume</li>
               <Link to="/transfer"><li>Transfer</li></Link>
               <Link to="/statistics"><li>Statistic</li></Link>
-              <li>Validate</li>
+              <Link to="/validate"><li>Validate</li></Link>
               <li>Settings</li>
               <button><Link to="/">LogOut</Link></button>
           </ul>

@@ -86,7 +86,7 @@ const Home = () => {
                         <li>Resume</li>
                         <Link to="/transfer"><li>Transfer</li></Link>
                         <Link to="/statistics"><li>Statistic</li></Link>
-                        <li>Validate</li>
+                        <Link to="/validate"><li>Validate</li></Link>             
                         <li>Settings</li>
                         <Link to="/"><button>LogOut</button></Link>
                     </ul>

@@ -40,7 +40,7 @@ function Search() {
     <div className='main-container'>
       {/* Aqui esta el menu de navegacion */}
       <header className='header'>
-        <div className='logo'><a href="#">LOGO</a></div>
+        <div className='logo'><Link to="/home">LOGO</Link></div>
         <nav className='nav'>
           <ul className='nav-list'>
             <li
@@ -96,7 +96,7 @@ function Search() {
             <li>Resume</li>
             <Link to="/transfer"><li>Transfer</li></Link>
             <Link to="/statistics"><li>Statistic</li></Link>
-            <li>Validate</li>
+            <Link to="/validate"><li>Validate</li></Link>
             <li>Settings</li>
             <button><Link to="/">LogOut</Link></button>
           </ul>
